@@ -1,0 +1,54 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println(hexConv("1E"))
+}
+
+func hexConv(hexnum string) int {
+	result := 0
+
+	for _, c := range hexnum {
+		result *= 16
+
+		if c >= '0' && c <= '9' {
+			result += int(c - '0')
+		} else if c >= 'A' && c <= 'F' {
+			result += int(c-'A') + 10
+		} else if c >= 'a' && c <= 'f' {
+			result += int(c-'a') + 10
+		} else {
+			fmt.Println("invalid hex character:", string(c))
+			return 0
+		}
+	}
+
+	return result
+}
+
+
+
+
+package main
+
+import (
+
+	"fmt"
+	"strconv"
+
+)
+
+	func main() {
+		fmt.Println(hexConv("1E"))
+	}
+
+	func hexConv(hexnum string) int {
+		convert, err := strconv.ParseInt(hexnum, 16, 64)
+		if err != nil {
+			fmt.Println("there was an error parsing: ", err)
+		}
+		return int(convert)
+	}
